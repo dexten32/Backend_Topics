@@ -10,7 +10,7 @@ app.use(express.json());
 //LOGIN PATH
 app.post("/login", loginMiddleware, async (req, res, next) => {
   const { email, password } = req.body;
-  const token = loginService(email, password);
+  const token = await loginService(email, password);
   res.json({ token: token });
 });
 
